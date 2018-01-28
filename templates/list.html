@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Jobs</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    </head>
+
+
+
+<body>
+
+    <table id="table" class="table table-striped">
+        <thead class="thead-dark">
+           <tr> 
+            <th scope="col">Company</th>
+            <th scope="col">Title</th>
+            <th scope="col">Url</th>
+            </tr>
+        </thead>
+
+         {% for row in rows %} 
+         <tr scope="row">
+         <td>{{ row.company }}</td>
+         <td>{{ row.title }} </td>
+         <td><a target="_blank" href={{ row.url }}>{{row.url}}</a></td>    
+        </tr>
+            
+        {% endfor %} 
+    </table>
+
+    <a href="/">Go back to home page</a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+   <script>
+    $(document).ready(function(){
+        $('#table').DataTable({
+            paging: false
+        });
+    });
+</script>
+</body>
+
+</html>
